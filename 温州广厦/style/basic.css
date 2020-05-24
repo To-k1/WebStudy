@@ -1,0 +1,217 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    width: 867px;
+    margin: 0 auto;
+    font-size: 12px;
+    color: #666;
+    background: #2c383e url(../images/bgindex.jpg) repeat-x;
+}
+
+#header,#nav,#content,#footer{
+    width: 867px;
+    margin: 0 auto;
+}
+#header{
+    height: 323px;
+    background-color: aqua;
+}
+#header embed{
+    height: 323px;
+    width: 867px;
+}
+ul{
+    list-style: none;
+}
+#nav{
+    height: 51px;
+    background-image: url("../images/linkbg.jpg");
+}
+#nav ul{
+    list-style: none;
+    height: 51px;
+    line-height: 51px;
+    margin: 0;
+    text-align: center;
+    padding: 0;
+}
+#nav ul li{
+    height: 51px;
+    width: 124px;
+    float: left;
+    background: url("../images/linkr.gif") no-repeat right center;
+}
+#nav ul li.end{
+    width: 123px;
+    background: none;
+}
+#nav ul li a{
+    width: 123px;
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+}
+#nav ul li a:hover{
+    text-decoration: underline;
+    color: burlywood;
+}
+#content{
+    height: 490px;
+}
+#content #sidebar,#news,#about,#estate{
+    float: left;
+}
+#content #sidebar{
+    width: 251px;
+    height: 490px;
+    background: white url(../images/weline.gif) no-repeat right center;
+}
+#sidebar h1{
+    background-image: url(../images/wel.gif);
+    width: 123px;
+    height: 35px;
+    font-size: 100%;
+    margin-top: 20px;
+    margin-left: 20px
+}
+#sidebar img,#about img{
+    display: block;
+    margin-left: 16px;
+}
+#sidebar ul{
+    text-indent: 20px;
+    line-height: 180%;
+    padding-top: 10px;
+}
+#sidebar ul li a{
+    display: inline-block;
+    background: url(../images/more.gif) no-repeat left center;
+    width: 65px;
+    height: 11px;
+}
+#sidebar ul .line{
+    border-bottom: 1px solid #999;
+    margin-left: 20px;
+    margin-right: 50px;
+    margin-bottom: 5px;
+    height: 10px;
+}
+#content #news{
+    width: 313px;
+    height: 300px;
+    background-color: white;
+}
+#news h1{
+    background-image: url(../images#news.gif);
+    width: 123px;
+    height: 27px;
+    font-size: 100%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+#news ul{
+    line-height: 160%;
+    margin-top: 10px;
+    margin-left: 20px;
+    background: url(../images/weline.gif) no-repeat right center;
+}
+#news ul li{
+    padding-left: 15px;
+}
+#news ul .date{
+    color: orange;
+    font-weight: bold;
+    background: url(../images/ico.gif) no-repeat left center;
+}
+#news ul li a{
+    display: inline-block;
+    background: url(../images/more.gif) no-repeat left center;
+    width: 65px;
+    height: 11px;
+    margin-top: 5px;
+}
+#content #about{
+    width: 303px;
+    height: 300px;
+    background-color: white;
+}
+#about h1{
+    background-image: url(../images#about.gif);
+    width: 127px;
+    height: 26px;
+    font-size: 100%;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+#about p {
+    width: 235px;
+    margin-left: 23px;
+    line-height: 150%;
+}
+#about a {
+    display: inline-block;
+    width: 65px;
+    height: 11px;
+    background: url(../images/more.gif) no-repeat left center;
+    margin-top: 8px;
+    margin-left: 22px;
+}
+#content #estate{
+    width: 616px;
+    height: 190px;
+    background-color: white;
+}
+#estate #escon {
+    width: 533px;
+    height: 189px;
+    margin-left: 33px;
+    border-top: 1px solid #ccc;
+}
+#escon img{
+    padding-top: 15px;
+    display: block;
+    float: left;
+}
+#escon dl{
+    float: left;
+    width: 288px;
+}
+#escon dl dt{
+    background: url(../images/estate1.gif) no-repeat;
+    width: 117px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+#escon dl dd{
+    padding-left: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+#escon dl dd a{
+    display: inline-block;
+    width: 65px;
+    height: 11px;
+    background: url(../images/more.gif) no-repeat left center;
+    margin-top: 8px;
+}
+#footer{
+    height: 110px;
+    background: url(../images/bg.gif);
+}
+#footer img{
+    padding-top: 10px;
+}
+#footer p{
+    color: #ccc;
+    text-align: right;
+    font-family: Tahoma;
+    font-size: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+}
+img{
+    border: none;
+}
