@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            outline: none;
+        }
+        body *{
+            display: flex;
+            font-family: poppin,Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;
+            font-size: 14px;
+        }
+        a:-webkit-any-link {
+            color: black;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        input:focus{
+            border: none;
+        }
+        button{
+            background-color:#fff;
+            border: none;
+        }
+        header{
+            flex-wrap: wrap;
+        }
+        body{
+            flex-direction: column;
+        }
+        .QQm_header{
+            margin: 0 50px;
+            flex-basis: 100vw;
+        }
+        body .recom{
+            background-color: darkkhaki;
+        }
+        body .new_songs{
+            background-color: brown;
+        }
+        body .tops{
+            background-color: cadetblue;
+        }
+        .QQm_title{
+            margin-right: 28px;
+        }
+        .QQm_title a img{
+            align-self: center;
+        }
+        .QQm_nav{
+            width: 453.11px;
+            height: 90px;
+            list-style: none;
+            justify-content: space-around;
+            /* margin-right: 83.89px; */
+        }
+        .QQm_nav li:first-child{
+            background-color: #31c27c;
+            color:white;
+        }
+        .QQm_nav li{
+            background-clip: padding-box;
+            line-height: 90px;
+            justify-content: center;
+            flex: 1 1;
+        }
+        .QQm_nav li a{
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .QQm_nav li:first-child a{
+            color: #fff;
+        }
+        .QQm_nav li:first-child :hover{
+            color: #fff;
+        }
+        .QQm_nav :hover{
+            color: #31c27c;
+        }
+        .search_input{
+            margin-left: auto;
+            border: 1px solid #c9c9c9;
+            align-self: center;
+            max-width: 220px;
+            height: 36px;
+            border-radius: 3px;
+        }
+        .search_input_input{
+            width: 174px;
+            margin-left: 11px;
+            border: none;
+        }
+        .search_input_btn{
+            width: 33px;
+            cursor: pointer;
+            justify-content: center;
+            color: darkgrey;
+        }
+        .search_input_btn:hover{
+            color: #31c27c;
+        }
+        .search_input_btn :first-child{
+            line-height: 32px;
+            font-size: 23px;
+        }
+        .top_login_link{
+            margin-left: 20px;
+            width: 38px;
+            margin-right: 20px;
+            line-height: 90px;
+        }
+        .green_diamond{
+            margin-left: 0;
+            margin-top: 24px;
+            width: 111px;
+            height: 38px;
+            background-color: #31c27c;
+            border-radius: 3px;
+            line-height: 38px;
+            color: #fff;
+            justify-content: center;
+        }
+        .subnav{
+            width: 100vw;
+            min-width: 855px;
+            height: 52px;
+            margin: 0 50px;
+            padding-left: 200px;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .subnav :first-child a{
+            color: #31C27C;
+        }
+        .subnav li a{
+            line-height: 52px;
+            font-size: 15px;
+        }
+        .recom, .new_songs, .tops{
+            background-image: linear-gradient(#eee, #fff);
+            padding: 0 50px;
+            flex-basis: 100vw;
+            min-width: 1010px;
+            justify-content: center;
+            flex-direction: column;
+            align-items: center;
+            height: 100%;
+        }
+        .index_hd{
+            padding-top: 4.16667%;
+            padding-bottom: 2%;
+            justify-content: center;
+            cursor: default;
+        }
+        .index_hd_h{
+            font-family: "SimHei","Arial","Microsoft YaHei","宋体",sans-serif;
+            font-weight: bold;
+            font-size: 33px;
+            letter-spacing: 0.3em;
+        }
+        .index_nav{
+            justify-content: space-around;
+            height: 50px;
+            width: 45%;
+        }
+        .index_nav li{
+            color: #333333;
+            cursor: pointer;
+        }
+        .index_nav li:hover{
+            color: #31C27C;
+        }
+        .index_nav :first-child{
+            color: #31C27C;
+        }
+        .recom_playlist{
+            min-height: 250px;
+            max-height: 310px;
+            max-width: 1200px;
+            width: 100%;
+            height: auto;
+            justify-content: space-between;
+            justify-self: center;
+            margin-bottom: 20px;
+        }
+        .recom_playlist div{
+            flex-direction: column;
+        }
+        .recom_playlist div a{
+            vertical-align: bottom;
+            margin-right: 20px;
+        }
+        .recom_playlist :last-child a{
+            margin: 0;
+        }
+        .recom_playlist_img{
+            width: 100%;
+            max-width: 224px;
+        }
+        .recom_playlist p{
+            color: #999999;
+        }
+        .playlist_swich p{
+            color:#dddddd;
+            cursor: pointer;
+            font-size: 18px;
+            letter-spacing: 1.2em;
+            margin-bottom: 1.5em;
+        }
+        .playlist_swich p:hover{
+            color: dimgray;
+        }
+        .songlist_list{
+            flex-wrap: wrap;
+            padding-left: 30px;
+        }
+        .songlist_list_item_box{
+            margin: -1px 30px 13px 0;
+            padding-top: 12px;
+            flex: 1;
+        }
+        .songlist_list_item_box h3{
+            padding: 21px 0 2px;
+        }
+        .songlist_list li{
+            height: 111px;
+            width: 33.333%;
+        }
+        .songlist_list_item_box_box{
+            flex: 1;
+            flex-direction: column;
+            padding-left: 13px;
+        }
+        .song_time{
+            margin-left: auto;
+            line-height: 87px;
+            color: #999999;
+        }
+        .songlist_list_item_box_box :nth-child(2) a{
+            color: #999999;
+        }
+        .toplist{
+            height: 567px;
+            justify-content: space-between;
+        }
+        .toplist li{
+            flex-direction: column;
+        }
+        .toplist li:first-child{
+            background-image: url(imgs/bg_index_top.jpg);
+        }
+        .toplist li:nth-child(2){
+            background-image: url(imgs/bg_index_top2.jpg);
+        }
+        .toplist li:nth-child(3){
+            background-image: url(imgs/bg_index_top3.jpg);
+        }
+        .toplist li:nth-child(4){
+            background-image: url(imgs/bg_index_top4.jpg);
+        }
+        .toplist li:nth-child(5){
+            background-image: url(imgs/bg_index_top5.jpg);
+        }
+        .toplist li p{
+            color: white;
+        }
+        .toplist_hd, .toplist_title, .player_link{
+            align-self: center;
+            font-family: poppin,Tahoma,Arial,\5FAE\8F6F\96C5\9ED1,sans-serif;
+        }
+        .player_link{
+            margin-bottom: 1em;
+        }
+        .player_link:-webkit-any-link{
+            color:white;
+            font-size: 25px;
+        }
+        .toplist_hd{
+            font-size: 21px;
+            font-weight: lighter;
+            margin: 60px 70px 5px;
+            letter-spacing: 0.1em;
+        }
+        .toplist_title{
+            font-size: 26px;
+            margin-bottom: 30px;
+        }
+        .toplist_song_list{
+            flex-direction: column;
+            background: none;
+            list-style-type: decimal;
+            margin-bottom: 3em;
+        }
+        .toplist_song_list div{
+            flex-direction: column;
+            margin-left: 1em;
+        }
+        .toplist_song_list div a{
+            margin-left: 1em;
+            color: white;
+            margin-bottom: 1em;
+        }
+        .toplist_song_list div :first-child{
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="QQm_header">
+            <h1 class="QQm_title">
+                <a href="https://y.qq.com/">
+                    <img src="imgs/logo.png">
+                </a>
+            </h1>
+            <ul class="QQm_nav">
+                <li><a href="//y.qq.com">音乐馆</a></li>
+                <li><a href="https://y.qq.com/portal/profile.html">我的音乐</a></li>
+                <li><a href="https://y.qq.com/download/index.html">客户端</a></li>
+                <li><a href="https://y.qq.com/artists">开放平台</a></li>
+                <li><a href="https://y.qq.com/portal/vipportal/index.html">VIP</a></li>
+            </ul>
+            <div class="search_input">
+                <input class="search_input_input" aria-label="请输入搜索内容" type="text" placeholder="搜索音乐、MV、歌单、用户">
+                <button class="search_input_btn">
+                    <p>Q</p>
+                </button>
+            </div>
+            <a class="top_login_link">登录</a>
+            <a class="green_diamond">开通绿钻豪华版</a>
+        </div>
+        <ul class="subnav">
+            <li>
+                <a href="https://y.qq.com/">首页</a>
+            </li>
+            <li>
+                <a href="https://y.qq.com/portal/singer_list.html">歌手</a>
+            </li>
+            <li>
+                <a href="https://y.qq.com/portal/album_lib.html">新碟</a>
+            </li>
+            <li>
+                <a href="https://y.qq.com/n/yqq/toplist/4.html">排行榜</a>
+            </li>
+            <li>
+                <a href="https://y.qq.com/portal/playlist.html">分类歌单</a>
+            </li>
+            <li>
+                <a href="https://y.qq.com/portal/radio.html">电台</a>
+            </li>
+            <li>
+                <a href="https://y.qq.com/portal/mv_lib.html#t6=2">MV</a>
+            </li>
+            <li>
+                <a href="https://y.qq.com/portal/album_mall.html">数字专辑</a>
+            </li>
+            <li>
+                <a href="https://y.qq.com/portal/piao_wu.html">票务</a>
+            </li>
+        </ul>
+    </header>
+    <div class="recom">
+        <div class="index_hd">
+            <h2 class="index_hd_h">歌单推荐</h2>
+        </div>
+        <ul class="index_nav">
+            <li>为你推荐</li>
+            <li>官方歌单</li>
+            <li>情歌</li>
+            <li>网络歌曲</li>
+            <li>经典</li>
+            <li>KTV热歌</li>
+        </ul>
+        <div class="recom_playlist">
+            <div>
+                <a href="https://y.qq.com/n/yqq/playsquare/7174020835.html#stat=y_new.index.playlist.pic">
+                    <img class="recom_playlist_img" src="imgs/300.jpg">
+                </a>
+                <a href="https://y.qq.com/n/yqq/playsquare/7174020835.html#stat=y_new.index.playlist.pic">
+                    怀旧经典|这些老歌你听过几首？
+                </a>
+                <p>播放量：410.3万</p>
+            </div>
+            <div>
+                <a href="https://y.qq.com/n/yqq/playsquare/7174020835.html#stat=y_new.index.playlist.pic">
+                    <img class="recom_playlist_img" src="imgs/301.jpg">
+                </a>
+                <a href="https://y.qq.com/n/yqq/playsquare/7174020835.html#stat=y_new.index.playlist.pic">
+                    人气爆棚！一秒倾心的神仙歌曲
+                </a>
+                <p>播放量：X万</p>
+            </div>            <div>
+                <a href="https://y.qq.com/n/yqq/playsquare/7174020835.html#stat=y_new.index.playlist.pic">
+                    <img class="recom_playlist_img" src="imgs/302.jpg">
+                </a>
+                <a href="https://y.qq.com/n/yqq/playsquare/7174020835.html#stat=y_new.index.playlist.pic">
+                    怀旧经典|这些老歌你听过几首？
+                </a>
+                <p>播放量：X万</p>
+            </div>            <div>
+                <a href="https://y.qq.com/n/yqq/playsquare/7174020835.html#stat=y_new.index.playlist.pic">
+                    <img class="recom_playlist_img" src="imgs/303.jpg">
+                </a>
+                <a href="https://y.qq.com/n/yqq/playsquare/7174020835.html#stat=y_new.index.playlist.pic">
+                    怀旧经典|这些老歌你听过几首？
+                </a>
+                <p>播放量：X万</p>
+            </div>            <div>
+                <a href="https://y.qq.com/n/yqq/playsquare/7174020835.html#stat=y_new.index.playlist.pic">
+                    <img class="recom_playlist_img" src="imgs/304.jpg">
+                </a>
+                <a href="https://y.qq.com/n/yqq/playsquare/7174020835.html#stat=y_new.index.playlist.pic">
+                    怀旧经典|这些老歌你听过几首？
+                </a>
+                <p>播放量：410.3万</p>
+            </div>
+        </div>
+        <div class="playlist_swich">
+            <p>●</p>
+            <p>●</p>
+        </div>
+    </div>
+    <div class="new_songs">
+        <div class="index_hd">
+            <h2 class="index_hd_h">新歌首发</h2>
+        </div>
+        <ul class="index_nav">
+            <li>最新</li>
+            <li>内地</li>
+            <li>港台</li>
+            <li>欧美</li>
+            <li>韩国</li>
+            <li>日本</li>
+        </ul>
+        <ul class="songlist_list">
+            <li>
+                <div class="songlist_list_item_box">
+                    <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                        <img src="imgs/T002R90x90M000000V2GzJ4fugbR_1.jpg">
+                    </a>
+                    <div class="songlist_list_item_box_box">
+                        <h3>
+                            <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                                たぶん
+                            </a>
+                        </h3>
+                        <p>
+                            <a href="https://y.qq.com/n/yqq/singer/001Erp1x1jDOoQ.html#stat=y_new.index.new_song.singername">
+                                YOASOBI (ヨアソビ)
+                            </a>
+                        </p>
+                    </div>
+                    <p class="song_time">
+                        04:18
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="songlist_list_item_box">
+                    <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                        <img src="imgs/T002R90x90M000000V2GzJ4fugbR_1.jpg">
+                    </a>
+                    <div class="songlist_list_item_box_box">
+                        <h3>
+                            <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                                たぶん
+                            </a>
+                        </h3>
+                        <p>
+                            <a href="https://y.qq.com/n/yqq/singer/001Erp1x1jDOoQ.html#stat=y_new.index.new_song.singername">
+                                YOASOBI (ヨアソビ)
+                            </a>
+                        </p>
+                    </div>
+                    <p class="song_time">
+                        04:18
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="songlist_list_item_box">
+                    <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                        <img src="imgs/T002R90x90M000000V2GzJ4fugbR_1.jpg">
+                    </a>
+                    <div class="songlist_list_item_box_box">
+                        <h3>
+                            <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                                たぶん
+                            </a>
+                        </h3>
+                        <p>
+                            <a href="https://y.qq.com/n/yqq/singer/001Erp1x1jDOoQ.html#stat=y_new.index.new_song.singername">
+                                YOASOBI (ヨアソビ)
+                            </a>
+                        </p>
+                    </div>
+                    <p class="song_time">
+                        04:18
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="songlist_list_item_box">
+                    <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                        <img src="imgs/T002R90x90M000000V2GzJ4fugbR_1.jpg">
+                    </a>
+                    <div class="songlist_list_item_box_box">
+                        <h3>
+                            <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                                たぶん
+                            </a>
+                        </h3>
+                        <p>
+                            <a href="https://y.qq.com/n/yqq/singer/001Erp1x1jDOoQ.html#stat=y_new.index.new_song.singername">
+                                YOASOBI (ヨアソビ)
+                            </a>
+                        </p>
+                    </div>
+                    <p class="song_time">
+                        04:18
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="songlist_list_item_box">
+                    <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                        <img src="imgs/T002R90x90M000000V2GzJ4fugbR_1.jpg">
+                    </a>
+                    <div class="songlist_list_item_box_box">
+                        <h3>
+                            <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                                たぶん
+                            </a>
+                        </h3>
+                        <p>
+                            <a href="https://y.qq.com/n/yqq/singer/001Erp1x1jDOoQ.html#stat=y_new.index.new_song.singername">
+                                YOASOBI (ヨアソビ)
+                            </a>
+                        </p>
+                    </div>
+                    <p class="song_time">
+                        04:18
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="songlist_list_item_box">
+                    <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                        <img src="imgs/T002R90x90M000000V2GzJ4fugbR_1.jpg">
+                    </a>
+                    <div class="songlist_list_item_box_box">
+                        <h3>
+                            <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                                たぶん
+                            </a>
+                        </h3>
+                        <p>
+                            <a href="https://y.qq.com/n/yqq/singer/001Erp1x1jDOoQ.html#stat=y_new.index.new_song.singername">
+                                YOASOBI (ヨアソビ)
+                            </a>
+                        </p>
+                    </div>
+                    <p class="song_time">
+                        04:18
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="songlist_list_item_box">
+                    <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                        <img src="imgs/T002R90x90M000000V2GzJ4fugbR_1.jpg">
+                    </a>
+                    <div class="songlist_list_item_box_box">
+                        <h3>
+                            <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                                たぶん
+                            </a>
+                        </h3>
+                        <p>
+                            <a href="https://y.qq.com/n/yqq/singer/001Erp1x1jDOoQ.html#stat=y_new.index.new_song.singername">
+                                YOASOBI (ヨアソビ)
+                            </a>
+                        </p>
+                    </div>
+                    <p class="song_time">
+                        04:18
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="songlist_list_item_box">
+                    <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                        <img src="imgs/T002R90x90M000000V2GzJ4fugbR_1.jpg">
+                    </a>
+                    <div class="songlist_list_item_box_box">
+                        <h3>
+                            <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                                たぶん
+                            </a>
+                        </h3>
+                        <p>
+                            <a href="https://y.qq.com/n/yqq/singer/001Erp1x1jDOoQ.html#stat=y_new.index.new_song.singername">
+                                YOASOBI (ヨアソビ)
+                            </a>
+                        </p>
+                    </div>
+                    <p class="song_time">
+                        04:18
+                    </p>
+                </div>
+            </li>
+            <li>
+                <div class="songlist_list_item_box">
+                    <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                        <img src="imgs/T002R90x90M000000V2GzJ4fugbR_1.jpg">
+                    </a>
+                    <div class="songlist_list_item_box_box">
+                        <h3>
+                            <a href="https://y.qq.com/n/yqq/album/000V2GzJ4fugbR.html">
+                                たぶん
+                            </a>
+                        </h3>
+                        <p>
+                            <a href="https://y.qq.com/n/yqq/singer/001Erp1x1jDOoQ.html#stat=y_new.index.new_song.singername">
+                                YOASOBI (ヨアソビ)
+                            </a>
+                        </p>
+                    </div>
+                    <p class="song_time">
+                        04:18
+                    </p>
+                </div>
+            </li>
+        </ul>
+        <div class="playlist_swich">
+            <p>●</p>
+            <p>●</p>
+            <p>●</p>
+            <p>●</p>
+            <p>●</p>
+            <p>●</p>
+            <p>●</p>
+            <p>●</p>
+            <p>●</p>
+            <p>●</p>
+        </div>
+    </div>
+    <div class="tops">
+        <div class="index_hd">
+            <h2 class="index_hd_h">排行榜</h2>
+        </div>
+        <ul class="toplist">
+            <li>
+                <p class="toplist_hd">
+                    巅峰榜
+                </p>
+                <p class="toplist_title">
+                    热歌
+                </p>
+                <a class="player_link" href="https://y.qq.com/portal/player.html">
+                    ——
+                </a>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <p class="toplist_hd">
+                    巅峰榜
+                </p>
+                <p class="toplist_title">
+                    热歌
+                </p>
+                <a class="player_link" href="https://y.qq.com/portal/player.html">
+                    ——
+                </a>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <p class="toplist_hd">
+                    巅峰榜
+                </p>
+                <p class="toplist_title">
+                    热歌
+                </p>
+                <a class="player_link" href="https://y.qq.com/portal/player.html">
+                    ——
+                </a>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <p class="toplist_hd">
+                    巅峰榜
+                </p>
+                <p class="toplist_title">
+                    热歌
+                </p>
+                <a class="player_link" href="https://y.qq.com/portal/player.html">
+                    ——
+                </a>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <p class="toplist_hd">
+                    巅峰榜
+                </p>
+                <p class="toplist_title">
+                    热歌
+                </p>
+                <a class="player_link" href="https://y.qq.com/portal/player.html">
+                    ——
+                </a>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+                <div class="toplist_song_list">
+                    <div>
+                        <a href="https://y.qq.com/n/yqq/song/97773_num.html#stat=y_new.index.toplist.songname">1 晴天</a>
+                        <a href="https://y.qq.com/n/yqq/singer/0025NhlN2yWrP4.html#stat=y_new.index.toplist.singername">周杰伦</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
